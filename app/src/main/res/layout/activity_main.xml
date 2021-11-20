@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical"
+    android:background="@drawable/background3"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/location" />
+
+
+        <Button
+            android:minHeight="40dp"
+            android:id="@+id/buttonGetCurrentLocation"
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="5dp"
+            android:onClick="getLocation"
+            android:text="@string/location"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="5dp" />
+    </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="65dp"
+        android:visibility="gone"
+        android:layout_marginLeft="65dp" />
+
+    <TextView
+        android:id="@+id/textViewLatLong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_margin="10dp"
+        android:textColor="@color/yellow"
+        android:textSize="15sp"
+        android:textStyle="bold"
+         />
+
+    <TextView
+        android:id="@+id/textAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/textArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="left"
+            android:text="@string/area1"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/editTextArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:ems="4"
+            android:textStyle="bold"
+            android:hint="@string/in_metric"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+
+    <TextView
+        android:id="@+id/textFlowRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_marginTop="8dp"
+        android:text="FLOW RATE :"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextFlowRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:ems="6"
+        android:textStyle="bold"
+        android:hint="@string/in_litres_minutes"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textSize="15sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp">
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkBox"
+            style="@style/Widget.MaterialComponents.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:buttonTint="@android:color/holo_orange_light"
+            android:text="@string/riceSensor"
+            android:layout_marginStart="20dp" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/sensor"
+            style="@style/Widget.MaterialComponents.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:buttonTint="@android:color/holo_orange_light"
+            android:padding="5dp"
+            android:text="@string/sensor"
+            android:layout_marginStart="110dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:background="@drawable/custom_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/submit"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginStart="200dp"
+        android:layout_marginEnd="20dp" />
+
+    <Button
+        android:id="@+id/buttonSensor"
+        android:background="@drawable/custom_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/get_sensor_data"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:enabled="false"
+        android:layout_marginStart="200dp"
+        android:layout_marginEnd="20dp" />
+
+
+
+
+</LinearLayout>

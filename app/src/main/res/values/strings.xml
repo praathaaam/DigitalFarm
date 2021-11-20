@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Farma</string>
+    <string name="get_current_location">Get Current Location</string>
+    <string name="area">Area:</string>
+    <string name="flow_rate">Flow Rate:</string>
+    <string name="in_metric">in metric</string>
+    <string name="in_litres_minutes">in litres/minutes</string>
+    <string name="rice">Rice:</string>
+    <string name="submit">Weather Api Data</string>
+    <string name="fetching">Fetching.....</string>
+    <string name="weather">Weather Today: </string>
+    <string name="todo">TODO</string>
+    <string name="rain_today">Rain Today: </string>
+    <string name="running_time">Running Time: </string>
+    <string name="snow_today">Snow Today: </string>
+    <string name="clouds">Clouds: </string>
+    <string name="dew_point">Dew Point:</string>
+    <string name="dt">DATE:</string>
+    <string name="humidity">Humidity: </string>
+    <string name="pressure">Pressure: </string>
+    <string name="day_temp">Day Temp: </string>
+    <string name="evening_temp">Evening Temp: </string>
+    <string name="max_temp">Max Temp: </string>
+    <string name="min_temp">Min Temp: </string>
+    <string name="weather_api">WEATHER API DATA</string>
+    <string name="get_sensor_data">Sensor api data</string>
+    <string name="sensor">Sensor</string>
+    <string name="riceSensor">Rice</string>
+    <string name="location">Location</string>
+    <string name="area1">AREA :</string>
+    <string name="sensor_data_from_api">SENSOR API DATA</string>
+    <string name="soil_moisture1">Soil Moisture1: </string>
+    <string name="soil_moisture2">Soil Moisture2: </string>
+    <string name="light">Light: </string>
+    <string name="temp">Temp: </string>
+
+</resources>

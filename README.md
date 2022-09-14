@@ -1,4 +1,4 @@
-# DigitalFarm
+# Digital Farm
 Digital Farm: A Data-Driven Approach to Precision Agriculture in Small Farms
 
 # Farma App

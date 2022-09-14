@@ -82,7 +82,7 @@
             android:text="@string/area1"
             android:layout_marginLeft="20dp"
             android:textColor="@color/black"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             tools:ignore="RtlHardcoded" />
 
@@ -90,7 +90,7 @@
             android:id="@+id/editTextArea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
+            android:layout_marginLeft="60dp"
             android:ems="4"
             android:textStyle="bold"
             android:hint="@string/in_metric"
@@ -100,37 +100,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp">
 
-    <TextView
-        android:id="@+id/textFlowRate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:layout_marginTop="8dp"
-        android:text="FLOW RATE :"
-        android:layout_marginLeft="20dp"
-        android:textColor="@color/black"
-        android:textSize="35sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/editTextFlowRate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:ems="6"
-        android:textStyle="bold"
-        android:hint="@string/in_litres_minutes"
-        android:inputType="numberDecimal"
-        android:minHeight="48dp"
-        android:textSize="15sp"/>
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -144,7 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             android:padding="5dp"
             android:buttonTint="@android:color/holo_orange_light"
@@ -152,17 +122,107 @@
             android:layout_marginStart="20dp" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkBoxWheat"
+            style="@style/Widget.MaterialComponents.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:buttonTint="@android:color/holo_orange_light"
+            android:padding="5dp"
+            android:text="@string/wheat"
+            android:layout_marginStart="60dp" />
+
+    </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_marginTop="40dp">-->
+
+<!--       <RadioGroup-->
+<!--           android:id="@+id/radioGroup"-->
+<!--           android:layout_width="wrap_content"-->
+<!--           android:layout_height="wrap_content"-->
+<!--           android:layout_weight="1"-->
+<!--           android:orientation="horizontal">-->
+<!--           <RadioButton-->
+<!--               android:id="@+id/radioSowing"-->
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="wrap_content"-->
+<!--               android:layout_marginLeft="5dp"-->
+<!--               android:buttonTint="@android:color/holo_orange_light"-->
+<!--               android:text="@string/sowing"-->
+<!--               android:textSize="14dp"-->
+<!--               android:layout_weight="1"-->
+<!--               android:textStyle="bold">-->
+<!--           </RadioButton>-->
+
+<!--           <RadioButton-->
+<!--               android:id="@+id/radioGrowth1"-->
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="wrap_content"-->
+<!--               android:layout_marginLeft="8dp"-->
+<!--               android:layout_weight="1"-->
+<!--               android:buttonTint="@android:color/holo_orange_light"-->
+<!--               android:text="@string/growth1"-->
+<!--               android:textSize="12dp"-->
+<!--               android:textStyle="bold">-->
+
+<!--           </RadioButton>-->
+<!--           <RadioButton-->
+<!--               android:id="@+id/radioGrowth2"-->
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="wrap_content"-->
+<!--               android:layout_marginLeft="8dp"-->
+<!--               android:buttonTint="@android:color/holo_orange_light"-->
+<!--               android:text="@string/growth2"-->
+<!--               android:layout_weight="1"-->
+<!--               android:textSize="12dp"-->
+<!--               android:textStyle="bold">-->
+
+<!--           </RadioButton>-->
+<!--           <RadioButton-->
+<!--               android:id="@+id/radioMature"-->
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="wrap_content"-->
+<!--               android:layout_marginLeft="8dp"-->
+<!--               android:layout_weight="1"-->
+<!--               android:buttonTint="@android:color/holo_orange_light"-->
+<!--               android:text="@string/mature"-->
+<!--               android:textSize="12dp"-->
+<!--               android:textStyle="bold">-->
+
+<!--           </RadioButton>-->
+<!--       </RadioGroup>-->
+
+<!--    </LinearLayout>-->
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp">
+
+        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/sensor"
             style="@style/Widget.MaterialComponents.TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="110dp"
+            android:layout_marginLeft="20dp"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:buttonTint="@android:color/holo_orange_light"
             android:padding="5dp"
+            android:buttonTint="@android:color/holo_orange_light"
             android:text="@string/sensor"
-            android:layout_marginStart="110dp" />
+            android:layout_marginStart="20dp" />
+
 
     </LinearLayout>
 

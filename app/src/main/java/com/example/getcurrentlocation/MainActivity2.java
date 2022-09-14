@@ -1,9 +1,12 @@
 package com.example.getcurrentlocation;
 
+import static java.lang.Double.parseDouble;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -32,7 +35,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.BreakIterator;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity2 extends AppCompatActivity {
@@ -40,6 +47,7 @@ public class MainActivity2 extends AppCompatActivity {
 
 
     String url1;
+//    String s8;
     List<WeatherAPI> weatherData;
     RecyclerView recyclerView;
 
@@ -48,33 +56,32 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-//        TextView textView = findViewById(R.id.textView);
-//        TextView textView2 = findViewById(R.id.textView2);
-//        TextView textView3 = findViewById(R.id.textView3);
-//        TextView textView4 = findViewById(R.id.textView4);
-//        TextView textView5 = findViewById(R.id.textView5);
 
-//        Intent receiveIntent = this.getIntent();
+        String s1, s2, s3, s4, s5,s6,s7;
 
-        String s1, s2, s3, s4, s5;
-
-        int i5;
-        boolean b5;
+//      int i5;
+        boolean b1,b2;
 
         s1 = getIntent().getStringExtra("Latitude");
         s2 = getIntent().getStringExtra("Longitude");
         s3 = getIntent().getStringExtra("Area");
-        s4 = getIntent().getStringExtra("Flow Rate");
+//         s4 = getIntent().getStringExtra("Flow Rate");
         s5 = getIntent().getStringExtra("Rice");
+//        s6 = getIntent().getStringExtra("Wheat");
+//        s8=getIntent().getStringExtra("cropValueRadio");
 
 
-        b5 = Boolean.parseBoolean(s5);
-        i5 = b5 ? 1 : 2;
-        String s6 = String.valueOf(i5);
+
+        b1 = Boolean.parseBoolean(s5);
+//        b2 = Boolean.parseBoolean(s6);
+        if(b1) s7="2"; //For Rice
+        else s7="1";   //For Wheat
+//        if(b2) s7="1";
+
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
-        url1 = "https://jaisalabad.herokuapp.com/api_irrigation/111929343324/" + s1 + "/" + s2 + "/" + s3 + "/" + s4 + "/" + s6 + "/";
+        url1 = "https://jaisalabad.herokuapp.com/api_irrigation/111929343324/" + s1 + "/" + s2 + "/" + s3 + "/" + "1" + "/" + s7 + "/";
         weatherData = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -126,6 +133,7 @@ public class MainActivity2 extends AppCompatActivity {
 //    }
     }
 
+    @SuppressLint("StaticFieldLeak")
     public class GetData extends AsyncTask<String, String, String> {
 
         @Override
@@ -188,20 +196,27 @@ public class MainActivity2 extends AppCompatActivity {
 
 
                 WeatherAPI weather = new WeatherAPI();
-                weather.setRainToday(jsonObject.getString("RAIN TODAY"));
-                weather.setRunningTime(jsonObject.getString("Runtime")+" minutes");
-                weather.setSnowToday(jsonObject.getString("SNOW TODAY"));
-                weather.setClouds(owm.getString("clouds"));
-                weather.setDewPoint(owm.getString("dew_point"));
-                weather.setDt(owm.getString("dt"));
-                weather.setHumidity(owm.getString("humidity"));
-                weather.setPressure(owm.getString("pressure"));
-                weather.setDayTemp(temp.getString("day"));
-                weather.setEveTemp(temp.getString("eve"));
-                weather.setMaxTemp(temp.getString("max"));
-                weather.setMinTemp(temp.getString("min"));
+                weather.setRainToday(jsonObject.getString("RAIN TODAY")+" mm");
+                String str=jsonObject.getString("Runtime"+" litres");
+//                double d= parseDouble(s8);
+//                int rTime= (int) ((Integer.parseInt(str))*d);
+//                str= rTime +" litres";
+                weather.setRunningTime(str+" litres");
+                weather.setSnowToday(jsonObject.getString("SNOW TODAY")+" mm");
+                weather.setClouds(owm.getString("clouds")+"%");
+                weather.setDewPoint(owm.getString("dew_point")+" "+(char) 0x00B0+"C");
 
+                Date date = Calendar.getInstance().getTime();
+                @SuppressLint("SimpleDateFormat") DateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy HH:mm:ss");
+                String strDate = dateFormat.format(date);
+                weather.setDt(strDate);
 
+                weather.setHumidity(owm.getString("humidity")+"%");
+                weather.setPressure(owm.getString("pressure")+" millibar");
+                weather.setDayTemp(temp.getString("day")+" "+(char) 0x00B0+"C");
+                weather.setEveTemp(temp.getString("eve")+" "+(char) 0x00B0+"C");
+                weather.setMaxTemp(temp.getString("max")+" "+(char) 0x00B0+"C");
+                weather.setMinTemp(temp.getString("min")+" "+(char) 0x00B0+"C");
 
 
 
@@ -209,7 +224,7 @@ public class MainActivity2 extends AppCompatActivity {
                 {
                     String img;
                     String img2;
-                    String img3;
+//                    String img3;
 
                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 

@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -21,6 +22,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private ResultReceiver resultReceiver;
     private EditText editTextArea, editTextFlowRate;
-    private CheckBox checkRice, checkSensor;
+    private CheckBox checkRice, checkSensor, checkWheat;
     public double lat, lon;
-    public Button sensorButton;
+    public Button sensorButton, submitButton;
+    private RadioGroup radioGroup;
+    double cropValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +53,38 @@ public class MainActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         textAddress = findViewById(R.id.textAddress);
         editTextArea = findViewById(R.id.editTextArea);
-        editTextFlowRate = findViewById(R.id.editTextFlowRate);
+        //editTextFlowRate = findViewById(R.id.editTextFlowRate);
         checkRice = findViewById(R.id.checkBox);
         checkSensor=findViewById(R.id.sensor);
-        Button submitButton = findViewById(R.id.buttonSubmit);
+        checkWheat=findViewById(R.id.checkBoxWheat);
+        submitButton = findViewById(R.id.buttonSubmit);
         sensorButton = findViewById(R.id.buttonSensor);
+
+        /*
+
+        radioGroup=findViewById(R.id.radioGroup);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("NonConstantResourceId")
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch(checkedId){
+                    case R.id.radioSowing:
+                        cropValue=0.3;
+                        break;
+                    case R.id.radioGrowth1:
+                        cropValue=0.7;
+                        break;
+                    case R.id.radioGrowth2:
+                        cropValue=0.9;
+                        break;
+                    case R.id.radioMature:
+                        cropValue=0.4;
+                        break;
+                }
+            }
+        });
+
+         */
 
 
 
@@ -75,13 +106,15 @@ public class MainActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String latitude = Double.toString(lat);
-
-                String longitude = Double.toString(lon);
+               String latitude = Double.toString(lat);
+               String longitude = Double.toString(lon);
                String area = editTextArea.getText().toString();
-               String flowRate = editTextFlowRate.getText().toString();
+               //String flowRate = editTextFlowRate.getText().toString();
                boolean rice =  checkRice.isChecked();
                String riceChecked = Boolean.toString(rice);
+               boolean wheat =  checkRice.isChecked();
+               String wheatChecked = Boolean.toString(wheat);
+               String cropValueRadio = String.valueOf(cropValue);
 
 //                String area = editTextArea.getText().toString();
 //                String flowRate = editTextFlowRate.getText().toString();
@@ -93,8 +126,10 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("Latitude", latitude);
                 intent.putExtra("Longitude", longitude);
                 intent.putExtra("Area", area);
-                intent.putExtra("Flow Rate", flowRate);
+               // intent.putExtra("Flow Rate", flowRate);
                 intent.putExtra("Rice", riceChecked);
+                intent.putExtra("Wheat",wheatChecked);
+                intent.putExtra("cropValue",cropValueRadio);
                 startActivity(intent);
 
             }
@@ -110,24 +145,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    TextWatcher sensorTextWatcher = new TextWatcher() {
-//        @Override
-//        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//
-//        }
-//
-//        @Override
-//        public void onTextChanged(CharSequence s, int start, int before, int count) {
-//            boolean sensor = checkSensor.isChecked();
-//            sensorButton.setEnabled(sensor);
-//
-//        }
-//
-//        @Override
-//        public void afterTextChanged(Editable s) {
-//
-//        }
-//    };
+    /*
+    TextWatcher sensorTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            boolean sensor = checkSensor.isChecked();
+            sensorButton.setEnabled(sensor);
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
+    */
 
     public void getLocation(View view) {
         if (ContextCompat.checkSelfPermission(

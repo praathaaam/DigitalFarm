@@ -11,7 +11,7 @@
     <string name="weather">Weather Today: </string>
     <string name="todo">TODO</string>
     <string name="rain_today">Rain Today: </string>
-    <string name="running_time">Running Time: </string>
+    <string name="running_time">Water Requirement: </string>
     <string name="snow_today">Snow Today: </string>
     <string name="clouds">Clouds: </string>
     <string name="dew_point">Dew Point:</string>
@@ -33,5 +33,10 @@
     <string name="soil_moisture2">Soil Moisture2: </string>
     <string name="light">Light: </string>
     <string name="temp">Temp: </string>
+    <string name="wheat">Wheat</string>
+    <string name="sowing">Sowing</string>
+    <string name="growth1">Growth1</string>
+    <string name="growth2">Growth2</string>
+    <string name="mature">Mature</string>
 
 </resources>

@@ -131,10 +131,10 @@ public class MainActivity3 extends AppCompatActivity {
 
                 weather.setSoilMoisture1(owm.getString("SM_1"));
                 weather.setSoilMoisture2(owm.getString("SM_2"));
-                weather.setTemp(owm.getString("Temp"));
-                weather.setHumidity(owm.getString("Humd"));
-                weather.setPressure(owm.getString("Prsr"));
-                weather.setLight(owm.getString( "Light"));
+                weather.setTemp(owm.getString("Temp")+" "+(char) 0x00B0+"C");
+                weather.setHumidity(owm.getString("Humd")+"%");
+                weather.setPressure(owm.getString("Prsr")+" Pa");
+                weather.setLight(owm.getString( "Light")+" lm");
 
                 weatherData.add(weather);
 
